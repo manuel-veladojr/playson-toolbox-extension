@@ -619,9 +619,9 @@ class ProjectScanner:
         <li><strong>🟠 Complex Functions:</strong> {{ summary["Complex Functions"]|length }}</li>
         <li><strong>🔴 Security Warnings:</strong> {{ summary["Security Issues"]|length }}</li>
         <li><strong>📦 Unused Dependencies:</strong>
-            {% for lang, deps in summary["Unused Dependencies"].items() %}
-              {{ lang }} ({{ deps|length }}){% if not loop.last %}, {% endif %}
-            {% endfor %}
+        {% for lang, deps in summary["Unused Dependencies"].items() %}
+          {{ lang }} ({{ deps|length }}){% if not loop.last %}, {% endif %}
+        {% endfor %}
         </li>
         <li><strong>🎨 TailwindCSS Classes:</strong> {{ summary["TailwindCSS"]|length }}</li>
         <li><strong>💠 Bootstrap Classes:</strong> {{ summary["Bootstrap"]|length }}</li>
