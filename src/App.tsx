@@ -1,18 +1,16 @@
 // src/App.tsx
-import React, { Suspense, lazy } from "react";
-import Navigation from "./components/Navigation";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ProfilePage = lazy(() => import("./pages/ProfilePage"));
-const AdminPanel = lazy(() => import("./pages/AdminPanel"));
+const notify = () => toast("Profile updated successfully!");
 
 const App = () => {
   return (
     <div>
-      <Navigation />
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* Use your routing logic here to load the correct page */}
-        <ProfilePage />
-      </Suspense>
+      {/* Your app components */}
+      <button onClick={notify}>Notify</button>
+      <ToastContainer />
     </div>
   );
 };
