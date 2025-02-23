@@ -31,6 +31,15 @@ except ImportError:
     subprocess.run([sys.executable, "-m", "pip", "install", "radon"], check=True)
     from radon.complexity import cc_visit
 
+try:
+    from jinja2 import Template
+except ImportError:
+    import subprocess, sys
+    print("[INFO] jinja2 not found. Installing jinja2...")
+    subprocess.run([sys.executable, "-m", "pip", "install", "jinja2"], check=True)
+    from jinja2 import Template
+
+
 # For HTML templating via Jinja2
 from jinja2 import Template
 
