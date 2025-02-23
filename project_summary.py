@@ -630,7 +630,26 @@ class ProjectScanner:
     </ul>
     <h2>Detailed Reports</h2>
     {% for section, items in summary.items() %}
-        {% if section not in ['Unused Dependencies', 'Environment Variables'] %}
+    {% if section == "Unused Dependencies" %}
+        <details open>
+            <summary>🔹 {{ section }}</summary>
+            <ul>
+                {% for lang, deps in items.items() %}
+                    <li><strong>{{ lang }}</strong>:
+                        {% if deps %}
+                            <ul>
+                                {% for dep in deps %}
+                                    <li>{{ dep }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            ✅ No unused dependencies found!
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </details>
+    {% elif section != "Environment Variables" %}
         <details open>
             <summary>🔹 {{ section }}</summary>
             {% if section == "Complex Functions" %}
@@ -653,9 +672,8 @@ class ProjectScanner:
                 </ul>
             {% endif %}
         </details>
-        {% endif %}
-    {% endfor %}
-
+    {% endif %}
+{% endfor %}
     <h2>🔒 Security Report</h2>
     <details open>
       <summary>Security & Code Complexity Report</summary>
