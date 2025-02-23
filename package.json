@@ -18,6 +18,7 @@
   "homepage": "https://github.com/manuel-veladojr/playson-toolbox-extension#readme",
   "description": "",
   "dependencies": {
+    "plasmo": "^0.90.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
