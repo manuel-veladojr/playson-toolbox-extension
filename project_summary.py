@@ -93,7 +93,6 @@ def install_missing_libraries():
 install_missing_libraries()
 
 
-
 class ProjectScanner:
     """
     A class that encapsulates the logic for scanning a code project.
