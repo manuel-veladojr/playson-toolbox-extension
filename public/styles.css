@@ -1,0 +1,7 @@
+/* Example: public/styles.css or add to your Tailwind custom styles */
+.popup-window {
+  width: 800px;
+  height: 600px;
+  max-width: 100%;
+  max-height: 100%;
+}
