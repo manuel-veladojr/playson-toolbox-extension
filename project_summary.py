@@ -618,10 +618,60 @@ class ProjectScanner:
         <li><strong>🔶 Database Queries Detected:</strong> {% if summary["Database Queries"]|length > 0 %}{{ summary["Database Queries"]|length }}{% else %}✅ No Database queries detected{% endif %}</li>
         <li><strong>🟠 Complex Functions:</strong> {{ summary["Complex Functions"]|length }}</li>
         <li><strong>🔴 Security Warnings:</strong> {{ summary["Security Issues"]|length }}</li>
-        <li><strong>📦 Unused Dependencies:</strong>
-            {% for lang, deps in summary["Unused Dependencies"].items() %}
-              {{ lang }} ({{ deps|length }}){% if not loop.last %}, {% endif %}
-            {% endfor %}
+        <!-- Dashboard remains unchanged -->
+<li><strong>📦 Unused Dependencies:</strong>
+    {% for lang, deps in summary["Unused Dependencies"].items() %}
+      {{ lang }} ({{ deps|length }}){% if not loop.last %}, {% endif %}
+    {% endfor %}
+</li>
+<!-- End of Dashboard -->
+
+<!-- Detailed Reports -->
+{% for section, items in summary.items() %}
+    {% if section == "Unused Dependencies" %}
+        <details open>
+            <summary>🔹 {{ section }}</summary>
+            <ul>
+                {% for lang, deps in items.items() %}
+                    <li><strong>{{ lang }}</strong>:
+                        {% if deps %}
+                            <ul>
+                                {% for dep in deps %}
+                                    <li>{{ dep }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            ✅ No unused dependencies found!
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </details>
+    {% elif section != "Environment Variables" %}
+        <details open>
+            <summary>🔹 {{ section }}</summary>
+            {% if section == "Complex Functions" %}
+                <ul>
+                {% for func, score in items.items() %}
+                    <li>{{ func }} => {{ score }}</li>
+                {% endfor %}
+                </ul>
+            {% elif section == "JS Functions" or section == "JS Invocations" %}
+                <ul>
+                {% for item in items %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <ul>
+                {% for item in items %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </details>
+    {% endif %}
+{% endfor %}
         </li>
         <li><strong>🎨 TailwindCSS Classes:</strong> {{ summary["TailwindCSS"]|length }}</li>
         <li><strong>💠 Bootstrap Classes:</strong> {{ summary["Bootstrap"]|length }}</li>
