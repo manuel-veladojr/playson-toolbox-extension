@@ -79,16 +79,17 @@ HTML_OUTPUT_FILE = "project_summary.html"
 MANIFEST_FILE = "manifest.json"
 
 
-def install_missing_libraries():
+def install_missing_libraries() -> None:
     """
-    Ensure required Python libraries are installed. If missing, install them.
+    Ensure that all required libraries are installed.
     """
     for lib in REQUIRED_LIBRARIES:
         try:
             __import__(lib)
         except ImportError:
             print(f"[INFO] Installing missing package: {lib} ...")
-            subprocess.run([sys.executable, "-m", "pip", "install", "--upgrade", lib], check=False)
+            subprocess.run([sys.executable, "-m", "pip", "install", lib], check=False)
+
 
 install_missing_libraries()
 
