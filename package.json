@@ -1,7 +1,6 @@
 {
   "name": "playson-toolbox-extension",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +17,14 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "typescript": "^5.7.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuel-veladojr/playson-toolbox-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manuel-veladojr/playson-toolbox-extension/issues"
+  },
+  "homepage": "https://github.com/manuel-veladojr/playson-toolbox-extension#readme",
+  "description": ""
 }
