@@ -22,7 +22,14 @@ import argparse
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from radon.complexity import cc_visit
+try:
+    from radon.complexity import cc_visit
+except ImportError:
+    import subprocess
+    import sys
+    print("[INFO] radon not found. Installing radon...")
+    subprocess.run([sys.executable, "-m", "pip", "install", "radon"], check=True)
+    from radon.complexity import cc_visit
 
 # For HTML templating via Jinja2
 from jinja2 import Template
