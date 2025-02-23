@@ -78,7 +78,7 @@ REQUIRED_LIBRARIES = [
 
 # Folders & files to exclude
 EXCLUDED_FOLDERS = ["node_modules", "dist", "build", "venv", "__pycache__", "coverage", "logs"]
-EXCLUDED_FILES = ["python_project_tree.py", "project_summary.py"]
+EXCLUDED_FILES = ["python_project_tree.py", "project_summary.py", "project_summary.html"]
 
 # Known sensitive patterns
 SENSITIVE_PATTERNS = [
