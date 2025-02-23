@@ -22,23 +22,7 @@ import argparse
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-try:
-    from radon.complexity import cc_visit
-except ImportError:
-    import subprocess
-    import sys
-    print("[INFO] radon not found. Installing radon...")
-    subprocess.run([sys.executable, "-m", "pip", "install", "radon"], check=True)
-    from radon.complexity import cc_visit
-
-try:
-    from jinja2 import Template
-except ImportError:
-    import subprocess, sys
-    print("[INFO] jinja2 not found. Installing jinja2...")
-    subprocess.run([sys.executable, "-m", "pip", "install", "jinja2"], check=True)
-    from jinja2 import Template
-
+from radon.complexity import cc_visit
 
 # For HTML templating via Jinja2
 from jinja2 import Template
@@ -78,7 +62,7 @@ REQUIRED_LIBRARIES = [
 
 # Folders & files to exclude
 EXCLUDED_FOLDERS = ["node_modules", "dist", "build", "venv", "__pycache__", "coverage", "logs"]
-EXCLUDED_FILES = ["python_project_tree.py", "project_summary.py", "project_summary.html"]
+EXCLUDED_FILES = ["python_project_tree.py", "project_summary.py"]
 
 # Known sensitive patterns
 SENSITIVE_PATTERNS = [
@@ -138,6 +122,8 @@ class ProjectScanner:
         }
         self.total_files_scanned = 0
         self.counter_lock = threading.Lock()
+
+    # === Multi-language scanning methods ===
 
     def detect_project_languages(self) -> set:
         """
@@ -264,6 +250,8 @@ class ProjectScanner:
         if "Java" in languages_found:
             all_unused["Java"] = self.run_unused_deps_for_java()
         return all_unused
+
+    # === Additional scanning methods ===
 
     def run_pip_audit(self) -> list:
         """
@@ -401,6 +389,8 @@ class ProjectScanner:
             findings.append(f"[ERROR] Could not parse {MANIFEST_FILE}: {e}")
         return findings
 
+    # === Content extraction methods ===
+
     def extract_sql_queries(self, lines: list) -> list:
         """
         Extract SQL queries from given lines.
@@ -453,35 +443,23 @@ class ProjectScanner:
           - Arrow functions: const myFunc = async () => { ... }
           - Function expressions: const myFunc = function(...) { ... }
           - Class methods (excluding constructors)
-        
-        Reserved keywords (e.g., if, else, for, etc.) are filtered out.
         """
         content = "\n".join(lines)
         js_funcs = []
-        reserved = {"if", "else", "for", "while", "switch", "case", "try", "catch", "finally",
-                    "return", "const", "let", "var", "function", "new", "class", "default",
-                    "break", "continue", "do", "in", "of"}
         func_pat = re.compile(r'function\s+([\w$]+)\s*\((.*?)\)\s*\{?', re.MULTILINE)
         arrow_pat = re.compile(r'(?:const|let|var)\s+([\w$]+)\s*=\s*(?:async\s+)?\(?([^\)]*?)\)?\s*=>', re.DOTALL)
         func_expr_pat = re.compile(r'(?:const|let|var)\s+([\w$]+)\s*=\s*function\s*\((.*?)\)\s*\{?', re.MULTILINE)
         class_method_pat = re.compile(r'^\s*([\w$]+)\s*\((.*?)\)\s*\{', re.MULTILINE)
 
         for match in func_pat.finditer(content):
-            name = match.group(1)
-            if name not in reserved:
-                js_funcs.append(f"function {name}({match.group(2)})")
+            js_funcs.append(f"function {match.group(1)}({match.group(2)})")
         for match in arrow_pat.finditer(content):
-            name = match.group(1)
-            if name not in reserved:
-                js_funcs.append(f"(arrow) {name}({match.group(2)})")
+            js_funcs.append(f"(arrow) {match.group(1)}({match.group(2)})")
         for match in func_expr_pat.finditer(content):
-            name = match.group(1)
-            if name not in reserved:
-                js_funcs.append(f"(function expression) {name}({match.group(2)})")
+            js_funcs.append(f"(function expression) {match.group(1)}({match.group(2)})")
         for match in class_method_pat.finditer(content):
-            name = match.group(1)
-            if name != "constructor" and name not in reserved:
-                js_funcs.append(f"(class method) {name}({match.group(2)})")
+            if match.group(1) != "constructor":
+                js_funcs.append(f"(class method) {match.group(1)}({match.group(2)})")
         return js_funcs
 
     def extract_javascript_invocations(self, lines: list, defined_funcs: list) -> list:
@@ -494,6 +472,7 @@ class ProjectScanner:
         content = "\n".join(lines)
         invocations = []
         func_short_names = set()
+        # Reserved words to exclude from invocations
         reserved = {"if", "else", "for", "while", "switch", "case", "try", "catch", "finally",
                     "return", "const", "let", "var", "function", "new", "class", "default",
                     "break", "continue", "do", "in", "of"}
@@ -774,6 +753,7 @@ class ProjectScanner:
                 f.write(f"- 🟠 **Complex Functions:** {cplx_count}\n")
                 sec_count = len(self.summary.get("Security Issues", []))
                 f.write(f"- 🔴 **Security Warnings:** {sec_count}\n")
+                # Unused Dependencies
                 all_unused_deps = self.summary.get("Unused Dependencies", {})
                 f.write("- 📦 **Unused Dependencies:**\n")
                 if not all_unused_deps:
