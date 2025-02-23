@@ -1,30 +1,13 @@
 {
   "name": "playson-toolbox-extension",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/manuel-veladojr/playson-toolbox-extension.git"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/manuel-veladojr/playson-toolbox-extension/issues"
-  },
-  "homepage": "https://github.com/manuel-veladojr/playson-toolbox-extension#readme",
-  "description": "",
-  "dependencies": {
-    "plasmo": "^0.90.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
-  "devDependencies": {
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "typescript": "^5.7.3"
-  }
+  "license": "ISC"
 }
