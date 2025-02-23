@@ -2,7 +2,6 @@
   "name": "playson-toolbox-extension",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +16,14 @@
     "url": "https://github.com/manuel-veladojr/playson-toolbox-extension/issues"
   },
   "homepage": "https://github.com/manuel-veladojr/playson-toolbox-extension#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "typescript": "^5.7.3"
+  }
 }
