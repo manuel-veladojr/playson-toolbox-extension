@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "My Browser Extension",
+  "version": "1.0.0",
+  "description": "A browser extension built with React, TypeScript, Plasmo, and Tailwind CSS.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "public/index.html",
+    "default_icon": "public/icon.png"
+  },
+  "background": {
+    "service_worker": "src/background.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/contentScript.ts"]
+    }
+  ]
+}
