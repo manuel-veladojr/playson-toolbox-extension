@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "My Browser Extension",
+  "name": "Playson Toolbox Browser Extension",
   "version": "1.0.0",
   "description": "A browser extension built with React, TypeScript, Plasmo, and Tailwind CSS.",
   "permissions": [
