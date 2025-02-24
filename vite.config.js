@@ -3,11 +3,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  // Specify the folder where index.html is located
-  root: 'public',
+  // Root is now the project root
+  root: './',
+  // Specify public directory for static assets
+  publicDir: 'public',
   plugins: [react()],
   build: {
-    // Output directory relative to the project root
-    outDir: '../dist'
+    outDir: 'dist'
   }
 })
