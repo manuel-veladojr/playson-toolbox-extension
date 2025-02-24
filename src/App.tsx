@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const AdminPanel = lazy(() => import("./pages/AdminPanel"));
+const notify = () => toast("Profile updated successfully!");
 
 const App = () => {
   return (
@@ -15,6 +16,16 @@ const App = () => {
         {/* Use your routing logic here to load the correct page */}
         <ProfilePage />
       </Suspense>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div>
+      {/* Your app components */}
+      <button onClick={notify}>Notify</button>
+      <ToastContainer />
     </div>
   );
 };
