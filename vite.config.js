@@ -4,9 +4,9 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  publicDir: "public", // This is the folder that contains static assets (manifest.json, index.html, etc.)
+  root: "public", // Set the root to the public folder
   build: {
-    outDir: "dist", // Build output folder
+    outDir: "../dist", // Build output folder
     emptyOutDir: true,
   },
 });
