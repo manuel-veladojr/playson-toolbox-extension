@@ -19,7 +19,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
-  },
+  }
+},
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
