@@ -1,7 +1,7 @@
 # 🔒 **Security & Code Complexity Report**
 
 **Scan Metadata:**
-- **Scan Date:** 2025-02-24 04:30:59
+- **Scan Date:** 2025-02-24 11:35:00
 - **Scanned Directory:** C:\Playson\playson-toolbox-extension
 
 **Overall Security Posture:** Excellent
@@ -15,7 +15,7 @@
 
 ---
 ## 📄 **Manifest & Permissions Audit**
-✅ Manifest permissions look minimal or no manifest.json found!
+❌ No content_security_policy found in manifest.json. Consider adding a robust CSP.
 
 ---
 ## 🏷 **ESLint Findings** (React + Hooks)

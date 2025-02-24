@@ -1,16 +1,16 @@
 # 🚀 **Project Summary Report**
 
 **Scan Metadata:**
-- **Scan Date:** 2025-02-24 04:30:59
+- **Scan Date:** 2025-02-24 11:35:00
 - **Scanned Directory:** C:\Playson\playson-toolbox-extension
-- **Total Files Processed:** 0
+- **Total Files Processed:** 15
 
 ## 📊 **Summary Dashboard**
 - 🟢 **Backend Files:** 0
-- 🟡 **Frontend Files:** 0
-- 🎨 **CSS Files:** 0
+- 🟡 **Frontend Files:** 14
+- 🎨 **CSS Files:** 1
 - 🔵 **API Routes Detected:** ✅ No API routes detected!
-- 🔶 **Database Queries Detected:** ✅ No Database queries detected!
+- 🔶 **Database Queries Detected:** 2
 - 🟠 **Complex Functions:** 0
 - 🔴 **Security Warnings:** 0
 - 📦 **Unused Dependencies:**
@@ -102,9 +102,209 @@
     - sqlparse==0.5.3
   - **JavaScript**: ✅ No unused dependencies found!
   - **Bootstrap**: ✅ No unused dependencies found!
-- 🎨 **TailwindCSS Classes:** ✅ No TailwindCSS classes detected!
+- 🎨 **TailwindCSS Classes:** 129 classes detected!
 - 💠 **Bootstrap Classes:** ✅ No Bootstrap classes detected!
-- ⚙️ **JavaScript Functions:** ✅ None found!
-- 📞 **JavaScript Function Calls:** ✅ None found!
+- ⚙️ **JavaScript Functions:** 18 found!
+- 📞 **JavaScript Function Calls:** 1 found!
+
+---
+## 🔹 Frontend
+
+- postcss.config.js (Path: C:\Playson\playson-toolbox-extension)
+- tailwind.config.js (Path: C:\Playson\playson-toolbox-extension)
+- index.html (Path: C:\Playson\playson-toolbox-extension\public)
+- App.tsx (Path: C:\Playson\playson-toolbox-extension\src)
+- index.tsx (Path: C:\Playson\playson-toolbox-extension\src)
+- Navigation.tsx (Path: C:\Playson\playson-toolbox-extension\src\components)
+- Popup.tsx (Path: C:\Playson\playson-toolbox-extension\src\components)
+- RoleSwitcher.tsx (Path: C:\Playson\playson-toolbox-extension\src\components)
+- Sidebar.tsx (Path: C:\Playson\playson-toolbox-extension\src\components)
+- AdminPanel.tsx (Path: C:\Playson\playson-toolbox-extension\src\pages)
+- ApiKeyManagement.tsx (Path: C:\Playson\playson-toolbox-extension\src\pages)
+- LoginPage.tsx (Path: C:\Playson\playson-toolbox-extension\src\pages)
+- ProfilePage.tsx (Path: C:\Playson\playson-toolbox-extension\src\pages)
+- ProfileSettings.tsx (Path: C:\Playson\playson-toolbox-extension\src\pages)
+
+---
+## 🔹 CSS
+
+- styles.css (Path: C:\Playson\playson-toolbox-extension\public)
+
+---
+## 🔹 Database Queries
+
+```sql
+const handleUpdate = (e: React.FormEvent) => { e.preventDefault();
+<h2 className="text-xl font-bold mb-4">Update Profile Settings</h2> <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="border p-2 mb-2 w-full" /> {/* Include inputs for Password, Name, Surname, etc. */} <button type="submit" className="bg-green-500 text-white p-2 rounded"> Update Profile </button> </form> );
+```
+
+
+---
+## 🔹 TailwindCSS
+
+- Detected TailwindCSS classes:
+  - bg-blue-500
+  - p-4
+  - text-white
+  - flex
+  - space-x-4
+  - hover:underline
+  - hover:underline
+  - hover:underline
+  - p-4
+  - flex
+  - justify-between
+  - items-center
+  - text-xl
+  - font-bold
+  - text-gray-800
+  - dark:text-gray-100
+  - px-3
+  - py-1
+  - border
+  - rounded
+  - p-4
+  - text-gray-700
+  - dark:text-gray-300
+  - p-4
+  - border
+  - rounded
+  - block
+  - mb-2
+  - font-bold
+  - border
+  - p-2
+  - mt-2
+  - text-gray-600
+  - w-64
+  - bg-gray-200
+  - p-4
+  - p-4
+  - text-2xl
+  - font-bold
+  - mb-4
+  - min-w-full
+  - border
+  - p-2
+  - border
+  - p-2
+  - border
+  - p-2
+  - border
+  - p-2
+  - border
+  - p-2
+  - border
+  - p-2
+  - space-x-2
+  - bg-green-500
+  - text-white
+  - p-1
+  - rounded
+  - bg-yellow-500
+  - text-white
+  - p-1
+  - rounded
+  - bg-blue-500
+  - text-white
+  - p-1
+  - rounded
+  - bg-red-500
+  - text-white
+  - p-1
+  - rounded
+  - p-4
+  - text-2xl
+  - font-bold
+  - mb-4
+  - mb-2
+  - border
+  - p-2
+  - rounded
+  - bg-blue-500
+  - text-white
+  - p-1
+  - rounded
+  - flex
+  - flex-1
+  - p-4
+  - text-2xl
+  - font-bold
+  - max-w-sm
+  - mx-auto
+  - p-4
+  - text-xl
+  - font-bold
+  - mb-4
+  - border
+  - p-2
+  - mb-2
+  - w-full
+  - border
+  - p-2
+  - mb-2
+  - w-full
+  - border
+  - p-2
+  - mb-2
+  - w-full
+  - flex
+  - items-center
+  - mb-4
+  - mr-2
+  - bg-blue-500
+  - text-white
+  - p-2
+  - rounded
+  - mt-2
+  - text-blue-500
+  - max-w-md
+  - mx-auto
+  - p-4
+  - text-xl
+  - font-bold
+  - mb-4
+  - border
+  - p-2
+  - mb-2
+  - w-full
+  - bg-green-500
+  - text-white
+  - p-2
+  - rounded
+
+---
+## 🔹 JS Functions
+
+- Detected JavaScript functions:
+  - (arrow) ProfilePage(lazy(() (Found in: C:\Playson\playson-toolbox-extension\src\App.tsx)
+  - (arrow) AdminPanel(lazy(() (Found in: C:\Playson\playson-toolbox-extension\src\App.tsx)
+  - (arrow) notify() (Found in: C:\Playson\playson-toolbox-extension\src\App.tsx)
+  - (arrow) App() (Found in: C:\Playson\playson-toolbox-extension\src\App.tsx)
+  - (arrow) App() (Found in: C:\Playson\playson-toolbox-extension\src\App.tsx)
+  - (arrow) Navigation() (Found in: C:\Playson\playson-toolbox-extension\src\components\Navigation.tsx)
+  - (arrow) Popup() (Found in: C:\Playson\playson-toolbox-extension\src\components\Popup.tsx)
+  - (arrow) RoleSwitcher() (Found in: C:\Playson\playson-toolbox-extension\src\components\RoleSwitcher.tsx)
+  - (arrow) Sidebar() (Found in: C:\Playson\playson-toolbox-extension\src\components\Sidebar.tsx)
+  - (arrow) AdminPanel() (Found in: C:\Playson\playson-toolbox-extension\src\pages\AdminPanel.tsx)
+  - (arrow) users([
+    { id: 1, username: "user1", status: "active" },
+    { id: 2, username: "user2", status: "inactive" },
+  ];
+
+  const handleAction = (action: string, userId: number) (Found in: C:\Playson\playson-toolbox-extension\src\pages\AdminPanel.tsx)
+  - (arrow) ApiKeyManagement() (Found in: C:\Playson\playson-toolbox-extension\src\pages\ApiKeyManagement.tsx)
+  - (arrow) handleRegenerate(id: number) (Found in: C:\Playson\playson-toolbox-extension\src\pages\ApiKeyManagement.tsx)
+  - (arrow) ProfilePage() (Found in: C:\Playson\playson-toolbox-extension\src\pages\ProfilePage.tsx)
+  - (arrow) LoginPage() (Found in: C:\Playson\playson-toolbox-extension\src\pages\LoginPage.tsx)
+  - (arrow) handleLogin(e: React.FormEvent) (Found in: C:\Playson\playson-toolbox-extension\src\pages\LoginPage.tsx)
+  - (arrow) ProfileSettings() (Found in: C:\Playson\playson-toolbox-extension\src\pages\ProfileSettings.tsx)
+  - (arrow) handleUpdate(e: React.FormEvent) (Found in: C:\Playson\playson-toolbox-extension\src\pages\ProfileSettings.tsx)
+
+---
+## 🔹 JS Invocations
+
+- Detected JavaScript function calls:
+  - handleRegenerate (Found in: C:\Playson\playson-toolbox-extension\src\pages\ApiKeyManagement.tsx)
 
 ---
