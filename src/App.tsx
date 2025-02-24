@@ -1,5 +1,7 @@
 // src/App.tsx
 import React, { Suspense, lazy } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./components/Navigation";
 
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
