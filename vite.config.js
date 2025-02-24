@@ -1,13 +1,12 @@
-// vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+// vite.config.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  // Tell Vite where to find static files
-  publicDir: 'public',
+  root: "public", // Set the root to the public folder
   build: {
-    // Specify the output directory
-    outDir: 'dist'
-  }
+    outDir: "../dist", // Build output folder
+    emptyOutDir: true,
+  },
 });
